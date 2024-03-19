@@ -1,6 +1,7 @@
 import {
   //Initial Components
   IonContent, IonHeader, IonPage, IonTitle, IonToolbar,
+  IonCardContent, IonCardHeader,IonCardSubtitle, IonCardTitle
 } from '@ionic/react';
 
 // CSS
@@ -13,6 +14,14 @@ const Home: React.FC = () => {
         <IonToolbar>
           <IonTitle>Home</IonTitle>
         </IonToolbar>
+
+        <IonCardHeader>
+        <IonCardTitle>Welcome to my Application</IonCardTitle>
+        <IonCardSubtitle>enjoyyyyyyy</IonCardSubtitle>
+      </IonCardHeader>
+
+      <IonCardContent>feel free to contact me when you have concern, lovee yahhhh:0</IonCardContent>
+      
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
