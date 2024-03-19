@@ -1,6 +1,6 @@
 import {
   //Initial Components
-  IonContent, IonHeader, IonPage, IonTitle, IonToolbar,
+  IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard,
   IonCardContent, IonCardHeader,IonCardSubtitle, IonCardTitle
 } from '@ionic/react';
 
@@ -14,7 +14,7 @@ const Home: React.FC = () => {
         <IonToolbar>
           <IonTitle>Home</IonTitle>
         </IonToolbar>
-
+        <img alt="Profile" src=" "></img>
         <IonCardHeader>
         <IonCardTitle>Welcome to my Application</IonCardTitle>
         <IonCardSubtitle>enjoyyyyyyy</IonCardSubtitle>
