@@ -1,25 +1,36 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import React, { useState } from 'react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/react';
 import './Tab2.css';
 
-const Tab2: React.FC = () => {
+const ClickCounter: React.FC = () => {
+  const [count, setCount] = useState(0);
+
+  const handleIncrement = () => {
+    setCount(count + 1);
+  };
+
+  const handleDecrement = () => {
+    setCount(count - 1);
+  };
+
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>kapoy na</IonTitle>
+          <IonTitle>Click Counter</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Tab 2</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer name="" />
+      <IonContent fullscreen className="ion-padding">
+        <div className="counter-container">
+          <h1>Count: {count}</h1>
+          <div className="button-container">
+            <IonButton onClick={handleIncrement} color="success">click me</IonButton>
+            <IonButton onClick={handleDecrement} color="danger">reset</IonButton>
+          </div>
+        </div>
       </IonContent>
     </IonPage>
   );
 };
 
-export default Tab2;
+export default ClickCounter;
