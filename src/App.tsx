@@ -12,9 +12,9 @@ import {
 import { IonReactRouter } from '@ionic/react-router';
 import { calculatorOutline, ellipse, personOutline, speedometerOutline, square, triangle } from 'ionicons/icons';
 import Home from './pages/Home';
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
+import Tab1 from './pages/Profile';
+import Tab2 from './pages/Clickcounter';
+import Tab3 from './pages/calculator';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -45,17 +45,17 @@ const App: React.FC = () => (
         <Route exact path="/Home">
             <Home />
           </Route>
-          <Route exact path="/tab1">
+          <Route exact path="/Profile">
             <Tab1 />
           </Route>
-          <Route exact path="/tab2">
+          <Route exact path="/Clickcounter">
             <Tab2 />
           </Route>
-          <Route path="/tab3">
+          <Route path="/calculator">
             <Tab3 />
           </Route>
           <Route exact path="/">
-            <Redirect to="/tab1" />
+            <Redirect to="/Profile" />
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
@@ -65,15 +65,15 @@ const App: React.FC = () => (
             <IonLabel>Home</IonLabel>
           </IonTabButton>
 
-          <IonTabButton tab="tab1" href="/tab1">
+          <IonTabButton tab="tab1" href="/Profile">
             <IonIcon aria-hidden="true" icon={personOutline} />
             <IonLabel>Profile</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
+          <IonTabButton tab="tab2" href="/Clickcounter">
             <IonIcon aria-hidden="true" icon={speedometerOutline} />
             <IonLabel>click counter</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
+          <IonTabButton tab="tab3" href="/claculator">
             <IonIcon aria-hidden="true" icon={calculatorOutline} />
             <IonLabel>Calculator</IonLabel>
           </IonTabButton>
