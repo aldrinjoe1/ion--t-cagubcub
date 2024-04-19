@@ -42,6 +42,14 @@ const Home: React.FC<RouteComponentProps> = ({ history }) => {
      calculator
     </IonButton>
    </IonCardContent>
+
+   <IonCardContent>
+    <IonButton expand="block" routerLink='/todolist'>
+    <IonIcon icon={calculatorOutline} slot="start" />
+     todolist
+    </IonButton>
+   </IonCardContent>
+
   </IonCard>
       </IonContent>
     </IonPage>

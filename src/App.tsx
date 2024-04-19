@@ -10,7 +10,7 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { calculatorOutline, ellipse, personOutline, speedometerOutline, square, triangle } from 'ionicons/icons';
+import { calculatorOutline, closeOutline, ellipse, personOutline, speedometerOutline, square, triangle } from 'ionicons/icons';
 import Home from './pages/Home';
 import Tab1 from './pages/Profile';
 import Tab2 from './pages/Clickcounter';
@@ -34,6 +34,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import TodoList from './pages/todolist';
 
 setupIonicReact();
 
@@ -54,29 +55,36 @@ const App: React.FC = () => (
           <Route path="/calculator">
             <Tab3 />
           </Route>
+
+          <Route exact path="/todolist">
+            <TodoList/>
+          </Route>
+
           <Route exact path="/">
             <Redirect to="/Profile" />
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
 
+
         <IonTabButton tab="Home" href="/Home">
             <IonIcon aria-hidden="true" icon={personOutline} />
             <IonLabel>Home</IonLabel>
           </IonTabButton>
 
+          <IonTabButton tab="Home" href="/Home">
+            <IonIcon aria-hidden="true" icon={closeOutline} />
+            <IonLabel>close</IonLabel>
+          </IonTabButton>
+          
+
           <IonTabButton tab="tab1" href="/Profile">
             <IonIcon aria-hidden="true" icon={personOutline} />
             <IonLabel>Profile</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab2" href="/Clickcounter">
-            <IonIcon aria-hidden="true" icon={speedometerOutline} />
-            <IonLabel>click counter</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab3" href="/claculator">
-            <IonIcon aria-hidden="true" icon={calculatorOutline} />
-            <IonLabel>Calculator</IonLabel>
-          </IonTabButton>
+
+          
+   
         </IonTabBar>
       </IonTabs>
     </IonReactRouter>
