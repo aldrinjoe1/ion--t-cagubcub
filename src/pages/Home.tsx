@@ -1,18 +1,14 @@
 import React from 'react';
-import {
-  IonContent,
-  IonHeader,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-  IonCard,
-  IonCardContent,
-  IonCardHeader,
-  IonCardSubtitle,
-  IonCardTitle
-} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonButton, IonIcon } from '@ionic/react';
+import { RouteComponentProps } from 'react-router';
+import ClickCounter from './Clickcounter';
+import { alarmOutline, calculatorOutline } from 'ionicons/icons';
 
-const Home: React.FC = () => {
+const Home: React.FC<RouteComponentProps> = ({ history }) => {
+  const goToCalculator = () => {
+    history.push('/calculator');
+  };
+
   return (
     <IonPage>
       <IonHeader>
@@ -30,6 +26,23 @@ const Home: React.FC = () => {
           </IonCardHeader>
           <IonCardContent>Feel free to contact me when you have concerns. Love yahhhh:)</IonCardContent>
         </IonCard>
+
+<IonCard>
+    <IonCardContent>
+    <IonButton expand="block" routerLink='/Clickcounter'>
+    <IonIcon icon={alarmOutline} slot="start" />
+     Clickcounter
+    </IonButton>
+   </IonCardContent>
+
+
+   <IonCardContent>
+    <IonButton expand="block" routerLink='/calculator'>
+    <IonIcon icon={calculatorOutline} slot="start" />
+     calculator
+    </IonButton>
+   </IonCardContent>
+  </IonCard>
       </IonContent>
     </IonPage>
   );
