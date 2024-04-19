@@ -13,7 +13,7 @@ import {
   IonInput,
   IonIcon
 } from '@ionic/react';
-import { trashOutline } from 'ionicons/icons';
+import { calendarNumberOutline, listCircle, listCircleOutline, trashOutline } from 'ionicons/icons';
 
 const TodoList: React.FC = () => {
   const [tasks, setTasks] = useState<string[]>([]);
@@ -51,7 +51,7 @@ const TodoList: React.FC = () => {
               <IonCheckbox onIonChange={() => toggleTask(index)} />
               <IonLabel>{task}</IonLabel>
               <IonButton slot="end" onClick={() => removeTask(index)}>
-                <IonIcon icon={trashOutline} />
+                <IonIcon icon={calendarNumberOutline} />
               </IonButton>
             </IonItem>
           ))}
