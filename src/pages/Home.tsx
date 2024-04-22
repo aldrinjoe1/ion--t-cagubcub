@@ -2,7 +2,7 @@ import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonButton, IonIcon } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import ClickCounter from './Clickcounter';
-import { alarmOutline, calculatorOutline } from 'ionicons/icons';
+import { alarmOutline, bookOutline, calculatorOutline } from 'ionicons/icons';
 
 const Home: React.FC<RouteComponentProps> = ({ history }) => {
   const goToCalculator = () => {
@@ -45,7 +45,7 @@ const Home: React.FC<RouteComponentProps> = ({ history }) => {
 
    <IonCardContent>
     <IonButton expand="block" routerLink='/todolist'>
-    <IonIcon icon={calculatorOutline} slot="start" />
+    <IonIcon icon={bookOutline} slot="start" />
      todolist
     </IonButton>
    </IonCardContent>

@@ -51,7 +51,7 @@ const TodoList: React.FC = () => {
               <IonCheckbox onIonChange={() => toggleTask(index)} />
               <IonLabel>{task}</IonLabel>
               <IonButton slot="end" onClick={() => removeTask(index)}>
-                <IonIcon icon={calendarNumberOutline} />
+                <IonIcon icon={listCircleOutline} />
               </IonButton>
             </IonItem>
           ))}
