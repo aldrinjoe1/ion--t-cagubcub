@@ -1,57 +1,137 @@
 import React, { useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonButton, IonIcon, IonSearchbar } from '@ionic/react';
-import { RouteComponentProps } from 'react-router';
-import ClickCounter from './Clickcounter';
-import { alarmOutline, bookOutline, calculatorOutline } from 'ionicons/icons';
+import {
+  IonBackButton,
+  IonButton,
+  IonButtons,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardSubtitle,
+  IonCardTitle,
+  IonCol,
+  IonContent,
+  IonGrid,
+  IonHeader,
+  IonIcon,
+  IonInput,
+  IonItem,
+  IonLabel,
+  IonList,
+  IonPage,
+  IonRow,
+  IonTitle,
+  IonToolbar,
+  IonItemDivider,
+  IonSearchbar,
+  IonBadge
+} from '@ionic/react';
 
-const Home: React.FC<RouteComponentProps> = ({ history }) => {
-  const [searchText, setSearchText] = useState<string>('');
 
-  return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Home</IonTitle>
-          {/* Add the search bar */}
-          <IonSearchbar value={searchText} onIonChange={e => setSearchText(e.detail.value!)} placeholder="Search"></IonSearchbar>
-        </IonToolbar>
-      </IonHeader>
+//Ionic Icons
+import { speedometerOutline,calculator,pencil, chatbubble, readerOutline, logoIonic,logoFirebase, logoReact, book} from 'ionicons/icons';
 
-      <IonContent fullscreen>
-        <IonCard>
-          <img src="https://imgs.search.brave.com/y5n__-Hp2gsu9DwhH0XQDWbG7YccFmn4d216OXnlJso/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMud2lraWEubm9j/b29raWUubmV0L2xl/YWd1ZW9mbGVnZW5k/cy9pbWFnZXMvMS8x/Ny9UZWVtb19BbG1v/c3RfSG9tZS5qcGcv/cmV2aXNpb24vbGF0/ZXN0P2NiPTIwMjIw/ODE1MTI1NDM3" alt="Profile" />
-          <IonCardHeader>
-            <IonCardTitle>Welcome to my Application</IonCardTitle>
-            <IonCardSubtitle>canceran naaa</IonCardSubtitle>
-          </IonCardHeader>
-          <IonCardContent>Feel free to contact me when you have concerns. Love yahhhh:)</IonCardContent>
-        </IonCard>
+const cardData = [
+  {
+    title: 'Click Counter',
+    icon: speedometerOutline,
+    link: '/clickcounter',
+    tags: {
+      tag1: logoIonic,
+    }
 
-        <IonCard>
-          <IonCardContent>
-            <IonCard routerLink='/Clickcounter' style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <IonIcon icon={alarmOutline} slot="start" />
-              <IonCardTitle>Clickcounter</IonCardTitle>
-            </IonCard>
-          </IonCardContent>
+  },
+  {
+    title: 'Calculator',
+    icon: calculator,
+    link: '/calculator',
+    tags: {
+      tag1: logoIonic,
+    }
+  },
+  {
+    title: 'To Do List',
+    icon: book,
+    link: '/todolist',
+    tags: {
+      tag1: logoIonic,
+    }
+  },
+  {
+    title: 'Quote Generator',
+    icon: chatbubble,
+    link: '/quotegenerator',
+    tags: {
+      tag1: logoIonic,
+    }
+  },
+  {
+    title: 'Notes',
+    icon: readerOutline,
 
-          <IonCardContent>
-            <IonCard routerLink='/calculator' style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <IonIcon icon={calculatorOutline} slot="start" />
-              <IonCardTitle>Calculator</IonCardTitle>
-            </IonCard>
-          </IonCardContent>
+    link: '/notes',
+    tags: {
+      tag1: logoIonic,
+    }
+  }
+  
+];
 
-          <IonCardContent>
-            <IonCard routerLink='/todolist' style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <IonIcon icon={bookOutline} slot="start" />
-              <IonCardTitle>Todolist</IonCardTitle>
-            </IonCard>
-          </IonCardContent>
-        </IonCard>
-      </IonContent>
-    </IonPage>
-  );
+const Home: React.FC = () => {
+  {/*Dynamic Search*/}
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  
+    return (
+      <IonPage>
+        <IonHeader>
+          <IonToolbar>
+            <IonTitle>Home</IonTitle>
+          </IonToolbar>
+        </IonHeader>
+        <IonContent fullscreen>
+          <IonHeader collapse="condense">
+            <IonToolbar>
+              <IonTitle size="large">Home</IonTitle>
+            </IonToolbar>
+          </IonHeader>
+          
+          {/*Dynamic Search*/}
+          <IonSearchbar 
+            value={searchTerm} 
+            onIonInput={(e) => setSearchTerm(e.target.value ?? '')} 
+          />
+          
+          {cardData
+            .filter((card) => card.title.toLowerCase().includes(searchTerm.toLowerCase()))
+            .map((card, index) => (
+              <IonCard key={index} href={card.link}>
+                <IonCardHeader>
+                  <IonCardTitle>
+                    <IonGrid>
+                      <IonRow>
+                        <IonCol size="2">
+                          <IonIcon className="home-card-icon" icon={card.icon} color="primary" />
+                        </IonCol>
+                        <IonCol size="auto">
+                            <div className="home-card-title">{card.title}</div>
+                            {card.tags && Object.entries(card.tags).map(([key, icon], i) => (
+                              <IonIcon
+                                key={i}
+                                className="home-card-subicon"
+                                icon={icon}
+                                color="primary" // Set color as needed
+                              />
+                            ))}
+                          </IonCol>
+                      </IonRow>
+                    </IonGrid>
+                  </IonCardTitle>
+                </IonCardHeader>
+              </IonCard>
+          ))}
+        </IonContent>
+      </IonPage>
+    );
 };
-
+  
 export default Home;
+  
