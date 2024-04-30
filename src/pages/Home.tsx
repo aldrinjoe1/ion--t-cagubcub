@@ -7,17 +7,13 @@ import { alarmOutline, bookOutline, calculatorOutline } from 'ionicons/icons';
 const Home: React.FC<RouteComponentProps> = ({ history }) => {
   const [searchText, setSearchText] = useState<string>('');
 
-  const goToCalculator = () => {
-    history.push('/calculator');
-  };
-
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
           <IonTitle>Home</IonTitle>
           {/* Add the search bar */}
-          <IonSearchbar value={searchText} onIonChange={e => setSearchText(e.detail.value!)}></IonSearchbar>
+          <IonSearchbar value={searchText} onIonChange={e => setSearchText(e.detail.value!)} placeholder="Search"></IonSearchbar>
         </IonToolbar>
       </IonHeader>
 
@@ -32,26 +28,25 @@ const Home: React.FC<RouteComponentProps> = ({ history }) => {
         </IonCard>
 
         <IonCard>
-          {/* This is your existing code */}
           <IonCardContent>
-            <IonButton expand="block" routerLink='/Clickcounter'>
+            <IonCard routerLink='/Clickcounter' style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <IonIcon icon={alarmOutline} slot="start" />
-              Clickcounter
-            </IonButton>
+              <IonCardTitle>Clickcounter</IonCardTitle>
+            </IonCard>
           </IonCardContent>
 
           <IonCardContent>
-            <IonButton expand="block" routerLink='/calculator'>
+            <IonCard routerLink='/calculator' style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <IonIcon icon={calculatorOutline} slot="start" />
-              calculator
-            </IonButton>
+              <IonCardTitle>Calculator</IonCardTitle>
+            </IonCard>
           </IonCardContent>
 
           <IonCardContent>
-            <IonButton expand="block" routerLink='/todolist'>
+            <IonCard routerLink='/todolist' style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <IonIcon icon={bookOutline} slot="start" />
-              todolist
-            </IonButton>
+              <IonCardTitle>Todolist</IonCardTitle>
+            </IonCard>
           </IonCardContent>
         </IonCard>
       </IonContent>
