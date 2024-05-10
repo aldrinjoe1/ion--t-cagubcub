@@ -59,7 +59,7 @@ const cardData = [
   {
     title: 'Quote Generator',
     icon: chatbubble,
-    link: '/Qoutegenerator',
+    link: '/Qoutesgenerator',
     tags: {
       tag1: logoIonic,
     }
