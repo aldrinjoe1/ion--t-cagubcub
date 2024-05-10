@@ -34,7 +34,7 @@ const cardData = [
   {
     title: 'Click Counter',
     icon: speedometerOutline,
-    link: '/clickcounter',
+    link: '/Clickcounter',
     tags: {
       tag1: logoIonic,
     }
@@ -59,7 +59,7 @@ const cardData = [
   {
     title: 'Quote Generator',
     icon: chatbubble,
-    link: '/quotegenerator',
+    link: '/Qoutegenerator',
     tags: {
       tag1: logoIonic,
     }
@@ -103,8 +103,8 @@ const Home: React.FC = () => {
           {cardData
             .filter((card) => card.title.toLowerCase().includes(searchTerm.toLowerCase()))
             .map((card, index) => (
-              <IonCard key={index} href={card.link}>
-                <IonCardHeader>
+              <IonCard key={index} routerLink={card.link} routerDirection='forward'>
+              <IonCardHeader>
                   <IonCardTitle>
                     <IonGrid>
                       <IonRow>
