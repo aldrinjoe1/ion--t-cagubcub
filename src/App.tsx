@@ -70,7 +70,7 @@ const App: React.FC = () => (
             <Todolist />
           </Route>
 
-          <Route path="/quotegenerator">
+          <Route path="/Quotesgenerator">
             <QuoteGenerator />
           </Route>
 
